@@ -16,12 +16,12 @@ public class Solution
 
         while (right < input.Length)
         {
-            countBits(input[right]);
+            CountBits(input[right]);
 
             while (left <= right && valueBitwiseOR >= target)
             {
                 minLengthSubarray = Math.Min(minLengthSubarray, right - left + 1);
-                discountBits(input[left]);
+                DiscountBits(input[left]);
                 ++left;
             }
             ++right;
@@ -31,7 +31,7 @@ public class Solution
             : NOT_POSSIBLE_TO_CREATE_SUBARRAY;
     }
 
-    private void countBits(int value)
+    private void CountBits(int value)
     {
         valueBitwiseOR = (valueBitwiseOR | value);
         for (int bitPosition = 0; bitPosition < TOTAL_BITS; ++bitPosition)
@@ -40,7 +40,7 @@ public class Solution
         }
     }
 
-    private void discountBits(int value)
+    private void DiscountBits(int value)
     {
         for (int bitPosition = 0; bitPosition < TOTAL_BITS; ++bitPosition)
         {
